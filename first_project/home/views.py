@@ -1,6 +1,8 @@
 from django.shortcuts import render, HttpResponse
 from home.models import Contact
 from datetime import datetime    #This is used to get the current date and time
+from django.contrib import messages   #This is used to show the messages on the website
+
 # Create your views here.
 def index(request):
  #return HttpResponse("This is Homepage")
@@ -27,6 +29,7 @@ def contact(request):
   desc = request.POST.get('desc')
   contact = Contact(name=name,email=email,phone=phone,desc=desc,date=datetime.today())
   contact.save()
+  messages.success(request, "Your response has been submitted successfully..") #This is used to show the message on the website
   #This is used to save the data in the database
 
  return render(request,'contact.html')

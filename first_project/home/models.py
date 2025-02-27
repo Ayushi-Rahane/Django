@@ -8,7 +8,7 @@ class Contact(models.Model):
     desc = models.TextField()
     date = models.DateField()
 
-    def __str__(self):
+    def __str__(self):    
         return self.name
 # This is a model class which is used to create the table in the database.
 # This class is inherited from models.Model class.
